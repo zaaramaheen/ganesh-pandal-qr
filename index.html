@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Opening Maps...</title>
+    <script>
+        const latitude = 17.375837;
+        const longitude = 78.463631;
+        const appleMapsUrl = `https://maps.apple.com/?ll=${latitude},${longitude}&q=Ganesh%20Pandal%20Goshamahal`;
+        const googleMapsUrl = `https://www.google.com/maps/search/?api=1&query=${latitude},${longitude}`;
+        const isAppleDevice = /iPhone|iPad|iPod/i.test(navigator.userAgent) || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+        if (isAppleDevice) {
+            window.location.replace(appleMapsUrl);
+        } else {
+            windoe.location.replace(googleMapsUrl);
+        }
+    </script>
+</head>
+
+<body>
+</body>
+
+</html>
