@@ -43,12 +43,16 @@
 
         } else if (isAndroid) {
 
-            // Android → open Google Maps app 
-            const androidMaps = 
-                "intent://maps.google.com/maps?daddr=" + 
-                latitude + "," + longitude +
-                "#Intent;scheme=https;package=com.google.android.apps.maps;end";
-            window.location.href = androidMaps;
+           } else if (isAndroid) {
+
+    // Android → open Google Maps at the location
+    const androidMaps =
+        "https://www.google.com/maps/search/?api=1&query=" +
+        latitude + "," + longitude;
+
+    window.location.replace(androidMaps);
+
+}
 
         } else {
 
