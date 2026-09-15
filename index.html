@@ -1,64 +1,30 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Opening Maps...</title>
 
     <script>
         const latitude = 17.375837;
         const longitude = 78.463631;
 
-        // Apple Maps
         const appleMaps =
-            "https://maps.apple.com/?ll=" +
-            latitude + "," + longitude +
+            "https://maps.apple.com/?ll=" + latitude + "," + longitude +
             "&q=Ganesh%20Pandal%20Goshamahal";
 
-        // Google Maps website
         const googleMaps =
             "https://www.google.com/maps/search/?api=1&query=" +
             latitude + "," + longitude;
 
-        // Google Maps app on Android
-        const googleMapsApp =
-            "google.navigation:q=" +
-            latitude + "," + longitude;
-
         const userAgent = navigator.userAgent.toLowerCase();
 
-        const isApple =
+        if (
             userAgent.includes("iphone") ||
             userAgent.includes("ipad") ||
-            userAgent.includes("ipod");
-
-        const isAndroid =
-            userAgent.includes("android");
-
-        if (isApple) {
-
-            // iPhone / iPad → Apple Maps
-            window.location.replace(appleMaps);
-
-        } else if (isAndroid) {
-
-           } else if (isAndroid) {
-
-    // Android → open Google Maps at the location
-    const androidMaps =
-        "https://www.google.com/maps/search/?api=1&query=" +
-        latitude + "," + longitude;
-
-    window.location.replace(androidMaps);
-
-}
-
+            userAgent.includes("ipod")
+        ) {
+            window.location.href = appleMaps;
         } else {
-
-            // Other devices → Google Maps
-            window.location.replace(googleMaps);
-
+            window.location.href = googleMaps;
         }
     </script>
 </head>
