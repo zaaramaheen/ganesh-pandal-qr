@@ -43,13 +43,12 @@
 
         } else if (isAndroid) {
 
-            // Android → try Google Maps app directly
-            window.location.href = googleMapsApp;
-
-            // Fallback to Google Maps website
-            setTimeout(function () {
-                window.location.replace(googleMaps);
-            }, 1500);
+            // Android → open Google Maps app 
+            const androidMaps = 
+                "intent://maps.google.com/maps?daddr=" + 
+                latitude + "," + longitude +
+                "#Intent;scheme=https;package=com.google.android.apps.maps;end";
+            window.location.href = androidMaps;
 
         } else {
 
